@@ -72,7 +72,8 @@ body {
 .topbar {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
   padding: 0.7rem 1.1rem;
   background: linear-gradient(180deg, rgba(17, 29, 55, 0.96), rgba(10, 22, 46, 0.92));
   border-bottom: 1px solid rgba(181, 198, 230, 0.22);
@@ -137,6 +138,7 @@ body {
   width: 300px;
   flex: 0 0 300px;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
   padding: 0.75rem;
   background:
@@ -217,6 +219,7 @@ body {
 }
 .sort-row select {
   flex: 1 1 auto;
+  min-width: 0;
   background: rgba(9, 24, 52, 0.72);
   border: 1px solid #354e76;
   border-radius: 2px;
@@ -300,6 +303,7 @@ body {
   gap: 0.15rem;
   max-height: 220px;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 0.2rem;
 }
 .checkbox-row {
@@ -331,7 +335,13 @@ body {
   position: absolute;
   inset: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior: contain;
+  /* The virtualizer resizes the spacers below in response to scroll events;
+     without this, browsers' scroll-anchoring "helpfully" nudges scrollTop to
+     compensate, which re-triggers the same handler and can runaway to the
+     bottom from a tiny scroll. */
+  overflow-anchor: none;
   padding: 0.85rem;
 }
 
@@ -365,6 +375,10 @@ body {
   align-items: center;
   gap: 0.35rem;
   height: 148px;
+  /* Grid items default to a min-width matching their content's unwrapped
+     size; without this, a long SKU name would widen its whole grid track
+     and push the grid past the container, causing horizontal scroll. */
+  min-width: 0;
   cursor: pointer;
   color: inherit;
   font-family: inherit;
