@@ -1,6 +1,9 @@
+import { getSkuShareUrl } from './deepLink';
 import { placeholderMeta, placeholderSvgDataUri } from './placeholder';
 import type { Gender, Sku } from './types';
-import { escapeHtml, formatDuration, formatNumber } from './utils';
+import { escapeHtml, formatDuration, formatNumber, loadThumbWithFade } from './utils';
+
+const MODAL_TRANSITION_MS = 180;
 
 const IMG_BASE = `${import.meta.env.BASE_URL}img/skus/`;
 
@@ -29,10 +32,16 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
   overlay.appendChild(dialog);
   document.body.appendChild(overlay);
 
+  let closeTimer: number | undefined;
+
   function close(): void {
-    if (overlay.hidden) return;
-    overlay.hidden = true;
-    dialog.innerHTML = '';
+    if (!overlay.classList.contains('modal-visible')) return;
+    overlay.classList.remove('modal-visible');
+    window.clearTimeout(closeTimer);
+    closeTimer = window.setTimeout(() => {
+      overlay.hidden = true;
+      dialog.innerHTML = '';
+    }, MODAL_TRANSITION_MS);
     options.onClose?.();
   }
 
@@ -52,6 +61,7 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
   }
 
   function open(sku: Sku): void {
+    window.clearTimeout(closeTimer);
     dialog.innerHTML = '';
 
     const closeBtn = document.createElement('button');
@@ -64,10 +74,18 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
     const header = document.createElement('div');
     header.className = 'modal-header';
 
+    const thumbWrap = document.createElement('div');
+    thumbWrap.className = 'modal-thumb-wrap';
+
     const img = document.createElement('img');
     img.className = 'modal-thumb';
-    img.src = sku.hasThumb ? `${IMG_BASE}${sku.skuNum}.png` : placeholderSvgDataUri(sku.skuType);
     img.alt = '';
+    thumbWrap.appendChild(img);
+    if (sku.hasThumb) {
+      loadThumbWithFade(thumbWrap, img, `${IMG_BASE}${sku.skuNum}.png`, false);
+    } else {
+      loadThumbWithFade(thumbWrap, img, placeholderSvgDataUri(sku.skuType), true);
+    }
 
     const titleWrap = document.createElement('div');
     const title = document.createElement('h2');
@@ -85,7 +103,7 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
     copyLinkBtn.textContent = 'Copy link';
     copyLinkBtn.addEventListener('click', () => {
       navigator.clipboard
-        .writeText(window.location.href)
+        .writeText(getSkuShareUrl(sku.skuNum))
         .then(() => {
           copyLinkBtn.textContent = 'Copied!';
           copyLinkBtn.classList.add('copied');
@@ -102,7 +120,7 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
     subtitleRow.append(subtitle, copyLinkBtn);
     titleWrap.append(title, subtitleRow);
 
-    header.append(img, titleWrap);
+    header.append(thumbWrap, titleWrap);
 
     const body = document.createElement('div');
     body.className = 'modal-body';
@@ -127,6 +145,10 @@ export function createModal(options: ModalOptions = {}): ModalHandle {
 
     dialog.append(closeBtn, header, body);
     overlay.hidden = false;
+    // Force a style flush so the hidden -> visible transition actually
+    // animates instead of the class landing before layout picks it up.
+    void overlay.offsetWidth;
+    overlay.classList.add('modal-visible');
     options.onOpen?.(sku);
   }
 

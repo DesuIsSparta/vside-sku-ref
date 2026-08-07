@@ -10,3 +10,10 @@ export function setSkuHash(skuNum: number | null): void {
   const hash = skuNum == null ? '' : `#sku=${skuNum}`;
   window.history.replaceState(null, '', base + hash);
 }
+
+export function getSkuShareUrl(skuNum: number): string {
+  const dir = window.location.pathname.endsWith('/')
+    ? window.location.pathname
+    : `${window.location.pathname}/`;
+  return `${window.location.origin}${dir}sku/${skuNum}/`;
+}

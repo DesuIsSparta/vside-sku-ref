@@ -8,11 +8,39 @@ import { AppStore } from './state';
 import type { Sku } from './types';
 import { VirtualGrid } from './virtualGrid';
 
+function renderSkeleton(): string {
+  const filterSections = Array.from({ length: 8 }, () => '<div class="skeleton skeleton-filter-section"></div>').join('');
+  const cards = Array.from(
+    { length: 28 },
+    () => `
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-card-thumb"></div>
+        <div class="skeleton skeleton-card-label"></div>
+      </div>`,
+  ).join('');
+
+  return `
+    <div class="layout">
+      <header class="topbar">
+        <div class="brand">vSide <span>Sku Ref</span></div>
+        <div class="skeleton skeleton-topbar-count"></div>
+        <div class="skeleton skeleton-topbar-btn"></div>
+      </header>
+      <div class="main">
+        <aside class="filter-panel">${filterSections}</aside>
+        <div class="grid-wrap">
+          <div class="skeleton-grid">${cards}</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 async function main(): Promise<void> {
   const app = document.getElementById('app');
   if (!app) throw new Error('#app root not found');
 
-  app.innerHTML = '<div class="boot-loading">Loading vSide Sku Ref…</div>';
+  app.innerHTML = renderSkeleton();
 
   const skus = await loadSkus();
   const facets = buildFacets(skus);
@@ -34,6 +62,7 @@ async function main(): Promise<void> {
       </div>
     </div>
   `;
+  app.querySelector('.layout')?.classList.add('app-fade-in');
 
   const resultCountEl = document.getElementById('result-count') as HTMLElement;
   const gridArea = document.getElementById('grid-area') as HTMLElement;

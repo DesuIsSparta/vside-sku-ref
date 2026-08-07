@@ -1,6 +1,7 @@
 import { placeholderMeta, placeholderSvgDataUri } from './placeholder';
 import type { PooledItem } from './virtualGrid';
 import type { Sku } from './types';
+import { loadThumbWithFade } from './utils';
 
 const IMG_BASE = `${import.meta.env.BASE_URL}img/skus/`;
 
@@ -40,10 +41,18 @@ export function createCardShell(onSelect: (sku: Sku) => void): PooledItem<Sku> {
     card.title = sku.descriptionLong || sku.description || `SKU #${sku.skuNum}`;
     card.setAttribute('aria-label', `${sku.description || placeholderMeta(sku.skuType).label} — SKU ${sku.skuNum}`);
 
-    img.src = sku.hasThumb ? `${IMG_BASE}${sku.skuNum}.png` : placeholderSvgDataUri(sku.skuType);
+    if (sku.hasThumb) {
+      loadThumbWithFade(thumbWrap, img, `${IMG_BASE}${sku.skuNum}.png`, false);
+    } else {
+      loadThumbWithFade(thumbWrap, img, placeholderSvgDataUri(sku.skuType), true);
+    }
 
     label.textContent = sku.description || placeholderMeta(sku.skuType).label;
     num.textContent = `#${sku.skuNum}`;
+
+    card.classList.remove('card-enter');
+    void card.offsetWidth;
+    card.classList.add('card-enter');
   }
 
   return { el: card, update };

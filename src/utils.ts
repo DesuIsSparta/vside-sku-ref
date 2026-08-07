@@ -39,3 +39,27 @@ export function escapeHtml(value: string): string {
   div.textContent = value;
   return div.innerHTML;
 }
+
+/**
+ * Swaps a thumbnail `img`'s source, showing a shimmering placeholder on
+ * `wrap` until the new image decodes (skipped for `instant` sources like
+ * inline SVG data URIs, which never touch the network).
+ */
+export function loadThumbWithFade(wrap: HTMLElement, img: HTMLImageElement, src: string, instant: boolean): void {
+  img.classList.remove('thumb-loaded');
+  if (instant) {
+    wrap.classList.remove('thumb-loading');
+    img.src = src;
+    img.classList.add('thumb-loaded');
+    return;
+  }
+  wrap.classList.add('thumb-loading');
+  img.onload = () => {
+    wrap.classList.remove('thumb-loading');
+    img.classList.add('thumb-loaded');
+  };
+  img.onerror = () => {
+    wrap.classList.remove('thumb-loading');
+  };
+  img.src = src;
+}
