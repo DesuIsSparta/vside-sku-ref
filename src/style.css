@@ -21,6 +21,7 @@ html,
 body,
 #app {
   height: 100%;
+  overflow: hidden;
 }
 
 html {
@@ -136,6 +137,7 @@ body {
   width: 300px;
   flex: 0 0 300px;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.75rem;
   background:
     linear-gradient(180deg, rgba(12, 25, 52, 0.96), rgba(13, 38, 76, 0.92)),
@@ -329,6 +331,7 @@ body {
   position: absolute;
   inset: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 0.85rem;
 }
 
@@ -477,10 +480,38 @@ body {
   font-size: 1.15rem;
   color: #f4f6ff;
 }
+.modal-subtitle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
 .modal-subtitle {
   font-size: 0.8rem;
   color: var(--vs-muted);
   font-family: ui-monospace, monospace;
+}
+
+.modal-copy-link {
+  appearance: none;
+  border: 1px solid #354e76;
+  border-radius: 999px;
+  background: rgba(9, 24, 52, 0.72);
+  color: var(--vs-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.15rem 0.6rem;
+  cursor: copy;
+  transition: border-color 120ms ease, color 120ms ease, background-color 120ms ease;
+}
+.modal-copy-link:hover {
+  border-color: var(--vs-pink);
+  color: #fff;
+}
+.modal-copy-link.copied {
+  border-color: var(--vs-green);
+  color: var(--vs-green);
+  cursor: default;
 }
 
 .modal-body {

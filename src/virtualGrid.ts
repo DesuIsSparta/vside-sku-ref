@@ -1,16 +1,23 @@
+export interface PooledItem<T> {
+  el: HTMLElement;
+  update(item: T): void;
+}
+
 export interface VirtualGridOptions<T> {
   container: HTMLElement;
   itemHeight: number;
   itemMinWidth: number;
   gap: number;
   overscanRows?: number;
-  renderItem: (item: T, index: number) => HTMLElement;
+  createItem: () => PooledItem<T>;
 }
 
 /**
  * Minimal windowed grid: only the rows currently in (or near) the viewport
- * are ever in the DOM. Row count and column count are derived from the
- * container size, so it stays smooth over 10k+ items without a UI framework.
+ * are ever in the DOM. Pooled elements are updated in place rather than
+ * recreated every render — during continuous scrolling, most pool slots
+ * keep showing the same item from frame to frame, so this avoids
+ * re-triggering image loads for thumbnails that are already on screen.
  */
 export class VirtualGrid<T> {
   private items: T[] = [];
@@ -19,6 +26,7 @@ export class VirtualGrid<T> {
   private content: HTMLDivElement;
   private resizeObserver: ResizeObserver;
   private rafId: number | null = null;
+  private pool: PooledItem<T>[] = [];
 
   constructor(private opts: VirtualGridOptions<T>) {
     const { container } = opts;
@@ -31,9 +39,7 @@ export class VirtualGrid<T> {
     this.content = document.createElement('div');
     this.content.className = 'v-grid-content';
 
-    container.appendChild(this.topSpacer);
-    container.appendChild(this.content);
-    container.appendChild(this.bottomSpacer);
+    container.append(this.topSpacer, this.content, this.bottomSpacer);
 
     container.addEventListener('scroll', () => this.scheduleRender(), { passive: true });
     // Resizes are infrequent, so render immediately rather than routing through
@@ -71,7 +77,7 @@ export class VirtualGrid<T> {
   }
 
   private render(): void {
-    const { container, itemHeight, gap, overscanRows = 3, renderItem } = this.opts;
+    const { container, itemHeight, gap, overscanRows = 3 } = this.opts;
     const columns = this.computeColumns();
     const rowHeight = itemHeight + gap;
     const totalRows = Math.ceil(this.items.length / columns);
@@ -87,12 +93,25 @@ export class VirtualGrid<T> {
 
     const startIndex = startRow * columns;
     const endIndex = Math.min(this.items.length, endRow * columns);
+    const needed = Math.max(0, endIndex - startIndex);
+
+    while (this.pool.length < needed) {
+      const pooled = this.opts.createItem();
+      this.pool.push(pooled);
+      this.content.appendChild(pooled.el);
+    }
+    while (this.pool.length > needed) {
+      this.pool.pop()?.el.remove();
+    }
+
+    for (let i = 0; i < needed; i++) {
+      this.pool[i].update(this.items[startIndex + i]);
+    }
 
     this.topSpacer.style.height = `${startRow * rowHeight}px`;
     this.bottomSpacer.style.height = `${Math.max(0, (totalRows - endRow) * rowHeight)}px`;
 
     this.content.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     this.content.style.gap = `${gap}px`;
-    this.content.replaceChildren(...Array.from({ length: endIndex - startIndex }, (_, i) => renderItem(this.items[startIndex + i], startIndex + i)));
   }
 }

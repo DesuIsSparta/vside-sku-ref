@@ -1,6 +1,7 @@
 import './style.css';
 import { buildFacets, loadSkus } from './data';
-import { createCard } from './card';
+import { createCardShell } from './card';
+import { getSkuIdFromHash, setSkuHash } from './deepLink';
 import { createFilterPanel } from './filterPanel';
 import { createModal } from './modal';
 import { AppStore } from './state';
@@ -40,14 +41,17 @@ async function main(): Promise<void> {
   const filterPanelEl = document.getElementById('filter-panel') as HTMLElement;
   const resetBtn = document.getElementById('reset-btn') as HTMLButtonElement;
 
-  const modal = createModal();
+  const modal = createModal({
+    onOpen: (sku) => setSkuHash(sku.skuNum),
+    onClose: () => setSkuHash(null),
+  });
 
   const grid = new VirtualGrid<Sku>({
     container: gridArea,
     itemHeight: 148,
     itemMinWidth: 108,
     gap: 10,
-    renderItem: (sku) => createCard(sku, (s) => modal.open(s)),
+    createItem: () => createCardShell((s) => modal.open(s)),
   });
 
   function syncResults(): void {
@@ -68,6 +72,16 @@ async function main(): Promise<void> {
   );
 
   resetBtn.addEventListener('click', () => panel.reset());
+
+  function openFromHash(): void {
+    const id = getSkuIdFromHash();
+    if (id == null) return;
+    const sku = store.getState().allSkus.find((s) => s.skuNum === id);
+    if (sku) modal.open(sku);
+  }
+
+  window.addEventListener('hashchange', openFromHash);
+  openFromHash();
 }
 
 main().catch((err) => {

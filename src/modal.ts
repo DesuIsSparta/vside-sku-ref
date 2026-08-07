@@ -11,7 +11,12 @@ export interface ModalHandle {
   close(): void;
 }
 
-export function createModal(): ModalHandle {
+export interface ModalOptions {
+  onOpen?: (sku: Sku) => void;
+  onClose?: () => void;
+}
+
+export function createModal(options: ModalOptions = {}): ModalHandle {
   const overlay = document.createElement('div');
   overlay.className = 'modal-overlay';
   overlay.hidden = true;
@@ -25,8 +30,10 @@ export function createModal(): ModalHandle {
   document.body.appendChild(overlay);
 
   function close(): void {
+    if (overlay.hidden) return;
     overlay.hidden = true;
     dialog.innerHTML = '';
+    options.onClose?.();
   }
 
   overlay.addEventListener('click', (e) => {
@@ -65,10 +72,35 @@ export function createModal(): ModalHandle {
     const titleWrap = document.createElement('div');
     const title = document.createElement('h2');
     title.textContent = sku.description || `SKU #${sku.skuNum}`;
-    const subtitle = document.createElement('div');
+
+    const subtitleRow = document.createElement('div');
+    subtitleRow.className = 'modal-subtitle-row';
+    const subtitle = document.createElement('span');
     subtitle.className = 'modal-subtitle';
     subtitle.textContent = `${placeholderMeta(sku.skuType).label} · #${sku.skuNum}`;
-    titleWrap.append(title, subtitle);
+
+    const copyLinkBtn = document.createElement('button');
+    copyLinkBtn.type = 'button';
+    copyLinkBtn.className = 'modal-copy-link';
+    copyLinkBtn.textContent = 'Copy link';
+    copyLinkBtn.addEventListener('click', () => {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => {
+          copyLinkBtn.textContent = 'Copied!';
+          copyLinkBtn.classList.add('copied');
+          window.setTimeout(() => {
+            copyLinkBtn.textContent = 'Copy link';
+            copyLinkBtn.classList.remove('copied');
+          }, 1200);
+        })
+        .catch(() => {
+          // Clipboard API unavailable or blocked — nothing sensible to fall back to.
+        });
+    });
+
+    subtitleRow.append(subtitle, copyLinkBtn);
+    titleWrap.append(title, subtitleRow);
 
     header.append(img, titleWrap);
 
@@ -95,6 +127,7 @@ export function createModal(): ModalHandle {
 
     dialog.append(closeBtn, header, body);
     overlay.hidden = false;
+    options.onOpen?.(sku);
   }
 
   return { open, close };
