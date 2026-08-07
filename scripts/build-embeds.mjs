@@ -34,13 +34,17 @@ function escapeHtml(value) {
 }
 
 function buildDescription(sku) {
-  const parts = [];
-  if (sku.descriptionLong && sku.descriptionLong !== sku.description) parts.push(sku.descriptionLong);
-  if (sku.brand) parts.push(`Brand: ${sku.brand}`);
-  if (sku.drawerName) parts.push(`Category: ${sku.drawerName}`);
-  if (sku.price > 0) parts.push(`Price: ${sku.price.toLocaleString('en-US')}`);
-  parts.push(sku.avail ? 'Available' : 'Unavailable');
-  return parts.join(' · ') || `SKU #${sku.skuNum} on vSide Sku Ref`;
+  const lines = [];
+  if (sku.descriptionLong && sku.descriptionLong !== sku.description) lines.push(sku.descriptionLong);
+  if (sku.brand) lines.push(`Brand: ${sku.brand}`);
+  if (sku.drawerName) lines.push(`Category: ${sku.drawerName}`);
+
+  const statusParts = [];
+  if (sku.price > 0) statusParts.push(`Price: ${sku.price.toLocaleString('en-US')}`);
+  statusParts.push(sku.avail ? 'Available' : 'Unavailable');
+  lines.push(statusParts.join(' · '));
+
+  return lines.join('\n') || `SKU #${sku.skuNum} on vSide Sku Ref`;
 }
 
 function renderPage(sku) {
