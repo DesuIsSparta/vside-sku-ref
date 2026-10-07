@@ -21,10 +21,11 @@ out.width = out.height = SIZE;
 const outCtx = out.getContext('2d');
 
 const fetchJson = async (url) => (await fetch(url)).json();
-const [skus, meshManifest, textureManifest] = await Promise.all([
+const [skus, meshManifest, textureManifest, materialFlags] = await Promise.all([
   fetchJson('/data/skus.json'),
   fetchJson('/assets/meshes-manifest.json'),
   fetchJson('/assets/textures-manifest.json'),
+  fetchJson('/material-flags.json'),
 ]);
 const byId = new Map(skus.map((s) => [s.skuNum, s]));
 const availableMeshes = new Set(meshManifest.meshNames);
@@ -122,6 +123,9 @@ for (const g of ['m', 'f']) {
     skin: firstBy((s) => s.slot === 'skin' && s.gender === g),
     face: firstBy((s) => s.slot === 'face' && s.gender === g && s.meshName),
     eyes: firstBy((s) => s.slot === 'eyes' && s.gender === g && s.meshName),
+    // Bare skin for nail polish: the barefoot feet, and the skin parts of a starter top's arms.
+    feet: firstBy((s) => s.slot === 'feet' && s.gender === g && /\.feet\.bare$/.test(s.meshName)),
+    hands: byId.get(g === 'm' ? 500 : 5510),
   };
 }
 
@@ -138,7 +142,8 @@ function shotFor(sku) {
   if (isPiercing(slot)) return { yaw: side ? 55 * side : 22, elev: 4, min: 0.13, context: 'head', frame: 'item' };
   if (HEAD_ITEM.has(slot)) return { yaw: 25, elev: 6, min: 0.3, context: 'head', frame: 'all' };
   if (slot === 'back' || slot === 'tail') return { yaw: 155, elev: 8, min: 0.2, frame: 'item' };
-  if (/^(finger|toe)/.test(slot)) return { yaw: 30 * (side || 1), elev: 20, min: 0.06, frame: 'item' };
+  if (/^finger/.test(slot)) return { yaw: 80 * (side || 1), elev: 10, min: 0.17, context: 'hands', frame: 'item', raise: 0.45 };
+  if (/^toe/.test(slot)) return { yaw: 25 * (side || 1), elev: 35, min: 0.15, context: 'feet', frame: 'item' };
   if (/^wrist/.test(slot)) return { yaw: 30 * (side || 1), elev: 12, min: 0.12, frame: 'item' };
   if (slot === 'feet' || slot === 'shoes') return { yaw: 50, elev: 18, min: 0.2, frame: 'item' };
   if (slot === 'props') return { yaw: 25, elev: 10, min: 0.08, frame: 'item', oneHand: true };
@@ -146,56 +151,29 @@ function shotFor(sku) {
   return { yaw: 20, elev: 6, min: 0.15, frame: 'item' };
 }
 
-// Torque only honoured texture alpha on materials flagged translucent, and those
-// flags did not survive the GLB conversion. Some opaque garments (belts, ties)
-// carry an alpha channel that is 0 under most of their UVs; cutting them out
-// erases the item. Treat alpha as a cutout only when most faces land on opaque texels.
-const alphaCache = new Map();
-function textureAlpha(map) {
-  if (!alphaCache.has(map)) {
-    const { width, height } = map.image;
-    const canvas = new OffscreenCanvas(width, height);
-    const ctx = canvas.getContext('2d');
-    ctx.drawImage(map.image, 0, 0);
-    alphaCache.set(map, { width, height, data: ctx.getImageData(0, 0, width, height).data });
-  }
-  return alphaCache.get(map);
-}
-/** 'opaque' (no alpha under any face), 'cutout' (alpha shapes the item), or 'ignore'. */
-function alphaMode(geometry, map) {
-  const { width, height, data } = textureAlpha(map);
-  const uv = geometry.attributes.uv;
-  if (!uv) return 'ignore';
-  const index = geometry.index;
-  const tris = (index ? index.count : uv.count) / 3;
-  let clear = 0, partial = 0;
-  for (let t = 0; t < tris; t++) {
-    let u = 0, v = 0;
-    for (let k = 0; k < 3; k++) {
-      const i = index ? index.getX(t * 3 + k) : t * 3 + k;
-      u += uv.getX(i) / 3; v += uv.getY(i) / 3;
-    }
-    const x = Math.min(width - 1, Math.floor((u - Math.floor(u)) * width));
-    const y = Math.min(height - 1, Math.floor((v - Math.floor(v)) * height));
-    const a = data[(y * width + x) * 4 + 3];
-    if (a < 128) clear++;
-    if (a < 250) partial++;
-  }
-  if (!partial) return 'opaque';
-  return clear / tris < 0.5 ? 'cutout' : 'ignore';
+// Torque only used texture alpha on materials flagged Translucent (0x4); the
+// GLB conversion dropped the flags, so they come from the player .dts files
+// (read-dts-material-flags.py). Other materials draw opaque whatever their
+// alpha channel holds; guessing from the alpha itself can't tell a wing card
+// whose feathers cover a sliver of each quad from an opaque item.
+const TRANSLUCENT = 0x4;
+function usesAlpha(materialName) {
+  const flags = materialFlags[materialName] ?? materialFlags[materialName.replace(/#\d+$/, '')] ?? [];
+  return flags.some((f) => f & TRANSLUCENT);
 }
 
-async function buildMeshes(owner, skin) {
+async function buildMeshes(owner, skin, skinOnly = false) {
   const meshes = [];
   for (const token of owner.meshName.split(/\s+/).filter((t) => availableMeshes.has(t))) {
     const gltf = await loadGltf(`/assets/meshes/${token}.glb`);
     const sources = [];
     gltf.scene.traverse((o) => { if (o.isSkinnedMesh || o.isMesh) sources.push(o); });
     for (const src of sources) {
+      if (skinOnly && !isSkinMaterial(src.material.name)) continue;
       const texName = resolveTexture(src.material.name, owner, skin);
       const map = texName ? await loadTexture(texName) : null;
-      const mode = map ? alphaMode(src.geometry, map) : 'opaque';
-      const alphaTest = mode === 'cutout' ? 0.5 : 0;
+      const cutout = Boolean(map) && usesAlpha(src.material.name);
+      const alphaTest = cutout ? 0.5 : 0;
       const material = new THREE.MeshToonMaterial({
         map, color: map ? 0xffffff : 0x9aa4b8, gradientMap, alphaTest, side: THREE.DoubleSide,
       });
@@ -204,7 +182,7 @@ async function buildMeshes(owner, skin) {
       if (skeletonBones.some((b) => !b)) continue;
       const outlineMaterial = createOutlineMaterial(map);
       outlineMaterial.alphaTest = alphaTest;
-      for (const [mat, outline] of NO_OUTLINE || mode === 'cutout' ? [[material, false]] : [[material, false], [outlineMaterial, true]]) {
+      for (const [mat, outline] of NO_OUTLINE || cutout ? [[material, false]] : [[material, false], [outlineMaterial, true]]) {
         const mesh = new THREE.SkinnedMesh(src.geometry, mat);
         mesh.bind(new THREE.Skeleton(skeletonBones, src.skeleton.boneInverses), src.bindMatrix);
         mesh.frustumCulled = false;
@@ -239,6 +217,39 @@ function largerHand(pts) {
   return size(left) >= size(right) ? left : right;
 }
 
+function frame(cx, cy, half, minHalf) {
+  half = Math.max(half, minHalf);
+  camera.left = cx - half; camera.right = cx + half;
+  camera.top = cy + half; camera.bottom = cy - half;
+  camera.near = 0.01; camera.far = 20;
+  camera.updateProjectionMatrix();
+  outlineWidth.value = (2 * half / SIZE) * 0.9;
+}
+
+const full = new OffscreenCanvas(SIZE * SUPERSAMPLE, SIZE * SUPERSAMPLE);
+const fullCtx = full.getContext('2d', { willReadFrequently: true });
+/** The last render's opaque pixels as camera-space bounds, or null if nothing drew. */
+function drawnBounds() {
+  const n = SIZE * SUPERSAMPLE;
+  fullCtx.clearRect(0, 0, n, n);
+  fullCtx.drawImage(renderer.domElement, 0, 0);
+  const { data } = fullCtx.getImageData(0, 0, n, n);
+  let x0 = n, y0 = n, x1 = -1, y1 = -1;
+  for (let y = 0; y < n; y++) {
+    for (let x = 0; x < n; x++) {
+      if (data[(y * n + x) * 4 + 3] < 16) continue;
+      if (x < x0) x0 = x; if (x > x1) x1 = x;
+      if (y < y0) y0 = y; if (y > y1) y1 = y;
+    }
+  }
+  if (x1 < 0) return null;
+  const w = camera.right - camera.left, h = camera.top - camera.bottom;
+  return {
+    left: camera.left + (x0 / n) * w, right: camera.left + ((x1 + 1) / n) * w,
+    top: camera.top - (y0 / n) * h, bottom: camera.top - ((y1 + 1) / n) * h,
+  };
+}
+
 window.renderSku = async function renderSku(skuNum) {
   const sku = byId.get(skuNum);
   if (!sku || sku.skuType !== 'mesh') return { ok: false, reason: 'not a mesh sku' };
@@ -252,6 +263,10 @@ window.renderSku = async function renderSku(skuNum) {
   const item = await buildMeshes(itemOwner, skin);
   if (!item.length) return { ok: false, reason: 'no loadable mesh' };
   const context = [];
+  if (shot.context === 'hands' || shot.context === 'feet') {
+    const ctx = d[shot.context];
+    if (ctx) context.push(...(await buildMeshes(ctx, skin, true)));
+  }
   if (shot.context === 'head') {
     for (const ctx of [d.face, d.eyes]) {
       if (!ctx || ctx === itemOwner || ctx.slot === sku.slot) continue;
@@ -271,6 +286,10 @@ window.renderSku = async function renderSku(skuNum) {
     if (!framePts.length) return { ok: false, reason: 'empty' };
 
     const center = new THREE.Box3().setFromPoints(framePts).getCenter(new THREE.Vector3());
+    // From the side, the far hand shows past the (unrendered) body; cut away the far half.
+    renderer.clippingPlanes = shot.context === 'hands' && Math.abs(center.x) > 0.05
+      ? [new THREE.Plane(new THREE.Vector3(Math.sign(center.x), 0, 0), 0)]
+      : [];
     camera.position.copy(center).addScaledVector(viewDir, 10);
     camera.up.set(0, 1, 0);
     camera.lookAt(center);
@@ -283,13 +302,10 @@ window.renderSku = async function renderSku(skuNum) {
       minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x);
       minY = Math.min(minY, p.y); maxY = Math.max(maxY, p.y);
     }
-    const half = Math.max(maxX - minX, maxY - minY, shot.min) / 2 * (1 + PADDING * 2);
-    const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
-    camera.left = cx - half; camera.right = cx + half;
-    camera.top = cy + half; camera.bottom = cy - half;
-    camera.near = 0.01; camera.far = 20;
-    camera.updateProjectionMatrix();
-    outlineWidth.value = (2 * half / SIZE) * 0.9;
+    const minHalf = shot.min / 2 * (1 + PADDING * 2);
+    const fitHalf = Math.max(Math.max(maxX - minX, maxY - minY) / 2 * (1 + PADDING * 2), minHalf);
+    // shot.raise shifts the frame up by a fraction of its height, e.g. from fingertips toward the wrist.
+    frame((minX + maxX) / 2, (minY + maxY) / 2 + (shot.raise ?? 0) * fitHalf, fitHalf, minHalf);
 
     // Key light from the camera's upper left, like a product shot.
     const right = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
@@ -299,6 +315,14 @@ window.renderSku = async function renderSku(skuNum) {
     key.target.updateMatrixWorld();
 
     renderer.render(scene, camera);
+    // Cards cut out by texture alpha (tattoos, glove rings) can show a sliver of
+    // their geometry's bounds; tighten the frame to what actually drew.
+    const drawn = drawnBounds();
+    if (drawn && Math.max(drawn.right - drawn.left, drawn.top - drawn.bottom) < 0.75 * (camera.right - camera.left)) {
+      frame((drawn.left + drawn.right) / 2, (drawn.top + drawn.bottom) / 2,
+        Math.max(drawn.right - drawn.left, drawn.top - drawn.bottom) / 2 * (1 + PADDING * 2), minHalf);
+      renderer.render(scene, camera);
+    }
     outCtx.clearRect(0, 0, SIZE, SIZE);
     outCtx.imageSmoothingEnabled = true;
     outCtx.imageSmoothingQuality = 'high';
@@ -318,7 +342,6 @@ window.renderSku = async function renderSku(skuNum) {
 };
 
 window.dropTextureCache = () => {
-  alphaCache.clear();
   for (const [name, promise] of textureCache) {
     promise.then((t) => t?.dispose());
     textureCache.delete(name);

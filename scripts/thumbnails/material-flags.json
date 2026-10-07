@@ -1,0 +1,2209 @@
+{
+"base.f.ac.bearfcebaga": [
+67,
+71
+],
+"base.f.ac.bosbckbaga": [
+67,
+71
+],
+"base.f.ac.bunfcebaga": [
+67,
+71
+],
+"base.f.ac.carlotabaga": [
+67,
+71
+],
+"base.f.ac.classring": [
+67
+],
+"base.f.ac.crbelt": [
+67
+],
+"base.f.ac.crbeltb": [
+71
+],
+"base.f.ac.crocbaga": [
+67,
+71
+],
+"base.f.ac.drumset": [
+67
+],
+"base.f.ac.drumstick": [
+67
+],
+"base.f.ac.earpiece": [
+67
+],
+"base.f.ac.bass": [
+67
+],
+"base.f.ac.edenbag": [
+67,
+71
+],
+"base.f.ac.eguitara": [
+67
+],
+"base.f.ac.fluffybaga": [
+67,
+71
+],
+"base.f.ac.gldmtldsc": [
+71
+],
+"base.f.ac.handbaga": [
+67,
+71
+],
+"base.f.ac.lrpatenbaga": [
+67,
+71
+],
+"base.f.ac.maskmed": [
+67
+],
+"base.f.ac.maskstring": [
+71
+],
+"base.f.ac.mic": [
+67
+],
+"base.f.ac.orgvest": [
+67
+],
+"base.f.ac.pillow": [
+67
+],
+"base.f.ac.reneebaga": [
+67,
+71
+],
+"red.f.ac.rose": [
+67
+],
+"base.f.ac.shmmed": [
+67
+],
+"base.f.ac.shoulderbaga": [
+67
+],
+"base.f.ac.patenbaga": [
+67,
+71
+],
+"base.f.ac.slvrchnplq": [
+71
+],
+"base.f.ac.stethoscope": [
+67
+],
+"base.f.hair.sumo": [
+67
+],
+"base.f.legs.sumo": [
+67
+],
+"base.f.torso.sumo": [
+67
+],
+"base.f.legs.sumoskirt": [
+67
+],
+"base.f.ac.totea": [
+67,
+71
+],
+"base.f.acc.earmuffs": [
+67,
+71
+],
+"base.f.acc.fishnetlegs": [
+71
+],
+"base.f.ac.earr": [
+67
+],
+"base.f.ear.bstuds": [
+67
+],
+"base.f.ac.earhp": [
+67
+],
+"base.f.ac.gearrings": [
+71
+],
+"base.f.ear.glearring": [
+71
+],
+"base.f.ear.reinhorn": [
+67
+],
+"base.f.torso.xmasminitee": [
+67
+],
+"base.f.ac.rocaearringb": [
+67,
+71
+],
+"base.f.ears.headbanda": [
+71
+],
+"base.f.ears.headbandb": [
+71
+],
+"base.f.eyeball": [
+67
+],
+"base.f.skin.face": [
+67
+],
+"base.f.misc.eyelashes": [
+67
+],
+"ashley.f.skin.face": [
+67
+],
+"carmit.f.skin.face": [
+67
+],
+"kim.f.skin.face": [
+67
+],
+"base.f.face.makeupwhole": [
+71
+],
+"tyra.f.skin.face": [
+67
+],
+"base.f.skin.feet": [
+67
+],
+"base.f.feet.boota": [
+67
+],
+"base.f.feet.bootcow": [
+67
+],
+"base.f.feet.boots": [
+67
+],
+"base.f.feet.bootshi": [
+67
+],
+"base.f.feet.bootstrps": [
+67
+],
+"base.f.feet.cboots": [
+67
+],
+"base.f.skin.legs": [
+67
+],
+"base.f.feet.chucks": [
+67
+],
+"base.f.feet.fallpumps": [
+67
+],
+"base.f.feet.decks": [
+67
+],
+"base.f.feet.fallheelsc": [
+67
+],
+"base.f.feet.flats": [
+67
+],
+"base.f.skin.simple": [
+67
+],
+"base.f.feet.flipflops": [
+67
+],
+"base.f.feet.gorillafoot": [
+67
+],
+"base.f.feet.hboots": [
+67
+],
+"base.f.feet.hiheela": [
+67
+],
+"base.f.feet.hiheelb": [
+67
+],
+"base.f.feet.hiheelc": [
+67
+],
+"base.f.feet.hiheeld": [
+67
+],
+"base.f.feet.motodg": [
+67
+],
+"base.f.feet.pawa": [
+67
+],
+"base.f.feet.pennyloafers": [
+67
+],
+"base.f.feet.psandals": [
+67
+],
+"base.f.feet.pumps": [
+67
+],
+"base.f.feet.pumpsok": [
+67
+],
+"base.f.feet.rocasandals": [
+67
+],
+"base.f.feet.rocawedgea": [
+67
+],
+"base.f.feet.rocawedgek": [
+67
+],
+"base.f.feet.runnercla": [
+67
+],
+"base.f.feet.runnermod": [
+67
+],
+"base.f.feet.sandals": [
+67
+],
+"base.f.feet.shoesathl": [
+67
+],
+"base.f.feet.shoessock": [
+67
+],
+"base.f.feet.skates": [
+67
+],
+"slv.f.ac.bracelet": [
+67
+],
+"base.f.feet.slippers": [
+67
+],
+"base.f.feet.sneakertennis": [
+67
+],
+"base.f.feet.trainer": [
+67
+],
+"base.f.feet.tyraboots": [
+67
+],
+"base.f.feet.tyraopentoeb": [
+67
+],
+"base.f.feet.tyraopntoe": [
+67
+],
+"base.f.feet.wedgea": [
+67
+],
+"base.f.feet.wedgeb": [
+67
+],
+"base.f.finger.lnailpolish": [
+67
+],
+"base.f.finger.rnailpolish": [
+67
+],
+"base.f.glasses.aviator": [
+71
+],
+"base.f.glasses.biga": [
+71
+],
+"base.f.glasses.bigb": [
+71
+],
+"base.f.glasses.bigc": [
+71
+],
+"base.f.ac.catear": [
+67
+],
+"base.f.ac.devil": [
+67
+],
+"base.f.glasses.flata": [
+71
+],
+"base.f.glasses.flatb": [
+71
+],
+"base.f.glasses.flatc": [
+71
+],
+"base.f.ac.angelhalo": [
+67
+],
+"base.f.glasses.hipster": [
+71
+],
+"base.f.glasses.jackieo": [
+71
+],
+"base.f.glasses.maskfullb": [
+71
+],
+"base.f.glasses.maskfulla": [
+67
+],
+"base.f.glasses.retroa": [
+71
+],
+"base.f.glasses.retrob": [
+71
+],
+"base.f.glasses.star": [
+71
+],
+"base.f.hair.afropigtails": [
+67
+],
+"base.f.hair.ashley": [
+67
+],
+"base.f.hair.blegal": [
+67,
+71
+],
+"base.f.hair.fluxus": [
+67,
+71
+],
+"base.f.hair.carmit": [
+67
+],
+"base.f.hair.salonwvy": [
+67
+],
+"base.f.hair.cowboyhat": [
+67
+],
+"base.f.hair.salonstr": [
+67
+],
+"base.f.hair.salonwvytrns": [
+71
+],
+"base.f.hair.curlybob": [
+67
+],
+"base.f.hair.curlyboblg": [
+71
+],
+"base.f.hair.curlybobsm": [
+71
+],
+"base.f.hair.curlybobsms": [
+71
+],
+"base.f.hair.frizzy": [
+67
+],
+"base.f.hair.electromullet": [
+67,
+71
+],
+"base.f.hair.hatfurry": [
+67
+],
+"base.f.hair.straight": [
+67
+],
+"base.f.hair.hatkawa": [
+67
+],
+"base.f.hair.hatkawb": [
+67
+],
+"base.f.hair.hatnewsboy": [
+67
+],
+"base.f.hair.pigtails": [
+71
+],
+"base.f.hair.jessica": [
+67
+],
+"base.f.hair.visor": [
+67
+],
+"base.f.hair.beanie": [
+67
+],
+"base.f.neck.luxehat": [
+67
+],
+"base.f.hair.speedway": [
+67,
+71
+],
+"base.f.hair.ballcap": [
+67
+],
+"base.f.hair.clip": [
+67
+],
+"base.f.hair.melody": [
+67
+],
+"base.f.hair.mhwk": [
+67
+],
+"base.f.hair.neopanther": [
+67,
+71
+],
+"base.f.hair.nicole": [
+67
+],
+"white.f.hair.fur": [
+67
+],
+"base.f.hair.scrubs": [
+67
+],
+"base.f.hair.toklas": [
+67,
+71
+],
+"base.f.hair.dreads": [
+67
+],
+"base.f.hair.tyra": [
+67
+],
+"base.f.djheadphones": [
+67
+],
+"base.f.headphones": [
+67
+],
+"base.f.helmet.motodg": [
+67
+],
+"base.f.helmetmask.motodg": [
+71
+],
+"base.f.legs.babydoll": [
+67
+],
+"base.f.legs.bikini1pc": [
+67
+],
+"base.f.legs.bikinibottom": [
+67
+],
+"base.f.legs.capris": [
+67
+],
+"base.f.legs.crskirtshort": [
+67
+],
+"base.f.legs.falljeans": [
+67
+],
+"base.f.legs.fallleggings": [
+67
+],
+"base.f.legs.fallpants": [
+67
+],
+"base.f.legs.fallshorts": [
+67
+],
+"base.f.legs.grlieskirt": [
+67
+],
+"base.f.skin.legsskirt": [
+67
+],
+"base.f.legs.hotpants": [
+67
+],
+"base.f.legs.jeans": [
+67
+],
+"base.f.legs.jeansrolled": [
+67
+],
+"base.f.legs.kitsonjeans": [
+67
+],
+"base.f.legs.motodg": [
+67
+],
+"base.F.legs.cargopants": [
+67
+],
+"base.f.legs.rocacapricamo": [
+67
+],
+"base.f.legs.rocacapris": [
+67
+],
+"base.f.legs.shorts": [
+67
+],
+"base.f.legs.skirtpencil": [
+67
+],
+"base.f.legs.skirtshorta": [
+67
+],
+"base.f.legs.skirtshortb": [
+67
+],
+"base.f.legs.skirtsocka": [
+67
+],
+"kawa1.f.legs.whtsocks": [
+67
+],
+"base.f.legs.skirtsockb": [
+67
+],
+"base.f.legs.socksknee": [
+67
+],
+"jessica.f.legs.skirtshorta": [
+67
+],
+"jessica.f.legs.knsok": [
+67
+],
+"base.f.legs.sshorts": [
+67
+],
+"base.f.legs.sweats": [
+67
+],
+"base.f.legs.tyrajeans": [
+67
+],
+"base.f.legs.tyralegsskirt": [
+67
+],
+"base.f.legs.tyraskirt": [
+67
+],
+"base.f.legs.tyraskirtribbon": [
+67
+],
+"base.f.legs.tyrazbrdrs": [
+67
+],
+"base.f.legs.xmasskirt": [
+67
+],
+"base.f.hair.gorillamask": [
+67
+],
+"blk.f.neck.bowtie": [
+67
+],
+"base.f.ac.nkchain": [
+67
+],
+"base.f.ac.nkchainb": [
+67
+],
+"base.f.ac.chilichain": [
+71
+],
+"base.f.neck.choker": [
+71
+],
+"base.f.ac.nkchokera": [
+67
+],
+"base.f.ac.nkchokerb": [
+67
+],
+"base.f.ac.nkchokerc": [
+71
+],
+"base.f.ac.nklace": [
+67
+],
+"slv.f.ac.neckchain": [
+67
+],
+"base.f.ac.dogtag": [
+67
+],
+"base.f.neck.scarfa": [
+71
+],
+"base.f.neck.longchain": [
+71
+],
+"base.f.neck.luxescarf": [
+67
+],
+"base.f.neck.multgem": [
+71
+],
+"base.f.neck.necklacestar": [
+71
+],
+"base.f.neck.necktripgem": [
+71
+],
+"base.f.ac.nknic": [
+67
+],
+"base.f.ac.nkpenda": [
+67
+],
+"base.f.ac.rocachainb": [
+71
+],
+"base.f.neck.scarf": [
+67
+],
+"base.f.neck.scarfb": [
+67
+],
+"base.f.ac.stonejadechain": [
+71
+],
+"base.f.neck.thinscarf": [
+71
+],
+"base.f.neck.tie": [
+71
+],
+"base.f.neck.tinsel": [
+71
+],
+"base.f.prop.brush": [
+67,
+71
+],
+"base.f.prop.clippers": [
+67
+],
+"base.f.waist.gunbelt": [
+67
+],
+"base.f.prop.gun": [
+67
+],
+"base.f.wristleft.fancyglove": [
+71
+],
+"base.f.prop.hairdryer": [
+67
+],
+"base.f.prop.hairpick": [
+67
+],
+"comb.f.prop.hairpick": [
+71
+],
+"base.f.prop.nailfile": [
+67
+],
+"base.f.prop.nailpolish": [
+67
+],
+"base.f.prop.scissors": [
+3
+],
+"base.f.prop.shears": [
+67
+],
+"base.f.prop.watercan": [
+67
+],
+"base.f.prop.woodfile": [
+67
+],
+"base.f.toe.lnailpolish": [
+67
+],
+"base.f.toe.rnailpolish": [
+67
+],
+"base.f.torso.121dressa": [
+67
+],
+"base.f.skin.torsotanktopa": [
+67
+],
+"base.f.torso.121dressb": [
+67
+],
+"base.f.torso.121dressc": [
+67
+],
+"base.f.torso.121dressd": [
+67
+],
+"base.f.torso.121dresse": [
+67
+],
+"base.f.torso.121dresseshr": [
+67
+],
+"base.f.torso.121dressf": [
+67
+],
+"base.f.torso.alinecollar": [
+67
+],
+"base.f.torso.alinelngslv": [
+67
+],
+"base.f.torso.alinenoslv": [
+67
+],
+"base.f.torso.alineshrtslv": [
+67
+],
+"base.f.torso.alinetrans": [
+71
+],
+"purple.f.torso.bikini": [
+67
+],
+"base.f.torso.bikini1pc": [
+67
+],
+"base.f.torso.bikini": [
+67
+],
+"base.f.torso.blazernew": [
+67
+],
+"base.f.skin.armshands": [
+67
+],
+"base.f.torso.blazer": [
+67
+],
+"base.f.torso.blousesqr": [
+67
+],
+"base.f.torso.bustier": [
+67
+],
+"base.f.skin.torso": [
+67
+],
+"base.f.torso.blousesilky": [
+67
+],
+"base.f.torso.crtshirtlngslv": [
+67
+],
+"base.f.torso.crvest": [
+67
+],
+"base.f.torso.fallcoat": [
+67
+],
+"base.f.torso.falljacket": [
+67
+],
+"base.f.torso.fallminidress": [
+67
+],
+"base.f.torso.fallsweater": [
+67
+],
+"base.f.torso.fishnet": [
+71
+],
+"base.f.torso.furhoodie": [
+67
+],
+"base.f.torso.minitee": [
+67
+],
+"base.f.misc.fur": [
+71
+],
+"base.f.torso.haltera": [
+67
+],
+"base.f.torso.hoodielonga": [
+67
+],
+"base.f.torso.hoodieshorta": [
+67
+],
+"base.f.torso.kitsonhoodie": [
+67
+],
+"base.f.torso.kitsontanktop": [
+67
+],
+"base.f.torso.lngcutoff": [
+67
+],
+"blk.f.torso.lngslvshirtvest": [
+67
+],
+"jessica.f.torso.lngtshirt": [
+67
+],
+"base.f.torso.melodya": [
+67
+],
+"base.f.torso.melodyb": [
+67
+],
+"base.f.torso.motodg": [
+67
+],
+"base.f.torso.pajama": [
+67
+],
+"base.f.torso.peekaboo": [
+67
+],
+"base.f.torso.picpdress": [
+67
+],
+"base.f.torso.poloshtslva": [
+67
+],
+"base.f.torso.poloslvlessa": [
+67
+],
+"base.f.torso.prepsweater": [
+67
+],
+"base.f.torso.puffyshrt": [
+67
+],
+"base.f.torso.rocahoodie": [
+67
+],
+"base.f.torso.rocaminijacket": [
+67
+],
+"base.f.torso.rocapolo": [
+67
+],
+"base.f.torso.rocapolotee": [
+67
+],
+"base.f.torso.rocatshirt": [
+67
+],
+"base.f.torso.rocavest": [
+67
+],
+"base.f.torso.shirtdress": [
+67
+],
+"base.f.torso.shirtgolf": [
+67
+],
+"base.f.torso.shirtheavy": [
+67
+],
+"base.f.torso.sweaterbaggy": [
+67
+],
+"base.f.torso.sweatertee": [
+67
+],
+"base.f.torso.sweatjacket": [
+67
+],
+"base.f.torso.tanktopa": [
+67
+],
+"base.f.torso.teeshirt": [
+67
+],
+"base.f.torso.trackjacket": [
+67
+],
+"base.f.torso.trenchcoat": [
+67
+],
+"base.f.torso.tshirtlayera": [
+67
+],
+"base.f.torso.tshirtshtslva": [
+67
+],
+"base.f.torso.tyrabeltshirt": [
+67
+],
+"base.f.torso.tyradressjkt": [
+67
+],
+"base.f.torso.tyradressnecktie": [
+67
+],
+"base.f.torso.tyraribbondress": [
+67
+],
+"base.f.torso.tyrashirtdress": [
+67
+],
+"base.f.torso.tyrazbrdrs": [
+67
+],
+"base.f.torso.waitdress": [
+67
+],
+"blk.f.feet.hboots": [
+67
+],
+"base.f.ac.angelwing": [
+71
+],
+"drezza1.f.neck.necklacestar": [
+71
+],
+"base.f.waist.beltchain": [
+71
+],
+"base.f.waist.elfbelt": [
+67
+],
+"base.f.waist.bunnytail": [
+67,
+71
+],
+"base.f.ac.gbelt": [
+71
+],
+"base.f.waist.navelring": [
+71
+],
+"base.f.ac.pixiewing": [
+71
+],
+"base.f.ac.rocabelt": [
+67
+],
+"base.f.waist.shrtapron": [
+67
+],
+"base.f.ac.bangles": [
+67
+],
+"base.f.ac.banglets": [
+67
+],
+"base.f.ac.braceletniclt": [
+67
+],
+"base.f.ac.braceletlt": [
+71
+],
+"base.f.ac.braceletssqlt": [
+67
+],
+"base.f.ac.braceletstrilt": [
+67
+],
+"base.f.ac.cufflt": [
+67,
+71
+],
+"gld.f.ac.bangles": [
+67
+],
+"base.f.wrist.gorillahand": [
+67
+],
+"base.f.wristleft.motodg": [
+67
+],
+"base.f.wrist.pawa": [
+67
+],
+"base.f.ac.rocabrct": [
+67
+],
+"base.f.wristleft.watchcir": [
+67
+],
+"base.f.wristlt.armwarmers": [
+71
+],
+"base.f.ac.braceletrt": [
+67
+],
+"base.f.ac.braceletssqrt": [
+67
+],
+"base.f.ac.braceletstrirt": [
+67
+],
+"gld.f.ac.braceletrt": [
+67
+],
+"base.f.ac.cuffrt": [
+71
+],
+"base.f.wristright.fancyglove": [
+71
+],
+"base.f.wristright.motodg": [
+67
+],
+"base.f.wristright.watchsqr": [
+67
+],
+"base.f.wristrt.armwarmers": [
+71
+],
+"base.f.ac.backpacka": [
+67
+],
+"base.f.ac.backpackb": [
+67
+],
+"base.f.prop.scissorblade": [
+67
+],
+"base.f.prop.scissorhands": [
+67
+],
+"base.f.hair.mohawkb": [
+67
+],
+"base.f.hair.mohawka": [
+71
+],
+"base.f.finger.rnailpolishodd": [
+67
+],
+"base.f.finger.lnailpolishodd": [
+67
+],
+"base.f.ac.maskbandanna": [
+67
+],
+"base.f.ac.kefscarf": [
+67
+],
+"base.f.hair.gothwrap": [
+67
+],
+"base.f.hair.gothbraids": [
+67
+],
+"base.f.prop.switchcomb": [
+67
+],
+"base.f.prop.bowarrow": [
+67
+],
+"base.f.prop.loot": [
+67
+],
+"base.f.pierce.lfttragus": [
+67
+],
+"base.f.pierce.rghtragus": [
+67
+],
+"base.f.pierce.lftauricle": [
+67
+],
+"base.f.pierce.rghauricle": [
+67
+],
+"base.f.pierce.rghconch": [
+67
+],
+"base.f.pierce.earl": [
+67
+],
+"base.f.pierce.lfteyebrow": [
+67
+],
+"base.f.pierce.rgheyebrow": [
+67
+],
+"base.f.pierce.labret": [
+67
+],
+"base.f.pierce.lowlip": [
+67
+],
+"base.f.pierce.lftlobe": [
+67
+],
+"base.f.pierce.rghlobe": [
+67
+],
+"base.f.pierce.madonna": [
+67
+],
+"base.f.pierce.medusa": [
+67
+],
+"base.f.pierce.nostril": [
+67
+],
+"base.f.pierce.lftorbital": [
+67
+],
+"base.f.pierce.rghorbital": [
+67
+],
+"base.f.pierce.lftpinna": [
+67
+],
+"base.f.pierce.rghpinna": [
+67
+],
+"base.f.pierce.lftrook": [
+67
+],
+"base.f.pierce.rghrook": [
+67
+],
+"base.f.pierce.septum": [
+67
+],
+"base.f.pierce.septumd": [
+67
+],
+"base.f.pierce.lftlobed": [
+67
+],
+"base.f.pierce.rghlobed": [
+67
+],
+"base.f.prop.piercegun": [
+3
+],
+"base.f.prop.pipewrench": [
+3
+],
+"base.f.prop.adjwrench": [
+3
+],
+"base.f.prop.forcepa": [
+3
+],
+"base.f.prop.forcepb": [
+3
+],
+"base.f.prop.pliersa": [
+3
+],
+"base.f.prop.pliersb": [
+3
+],
+"base.n.prop.shaker": [
+67
+],
+"base.n.drink.glasscontainer": [
+71
+],
+"base.n.drink.glassliquid": [
+67,
+71
+],
+"base.n.drink.glassmisc": [
+67
+],
+"base.n.drink.vbeercontainer": [
+71
+],
+"base.n.drink.coconutcontainer": [
+67
+],
+"base.n.drink.fourtycontainer": [
+71
+],
+"base.n.drink.horncontainer": [
+67
+],
+"base.n.drink.milkcontainer": [
+67
+],
+"base.n.drink.jugcontainer": [
+67
+],
+"base.n.drink.coffeecontainer": [
+67
+],
+"base.n.drink.coffeemisc": [
+67
+],
+"base.n.drink.cancontainer": [
+67
+],
+"base.n.drink.canmisc": [
+67
+],
+"base.n.drink.sodacontainer": [
+67
+],
+"base.n.drink.sodamisc": [
+67
+],
+"base.n.drink.squishycontainer": [
+67
+],
+"base.n.drink.squishymisc": [
+71
+],
+"base.n.drink.squishyliquid": [
+67
+],
+"base.n.drink.cmugcontainer": [
+67
+],
+"base.n.drink.cmugliquid": [
+67
+],
+"base.n.drink.cmugmisc": [
+67
+],
+"base.n.drink.watercontainer": [
+71
+],
+"base.n.prop.genericbottle": [
+71
+],
+"base.n.prop.gcylinder": [
+71
+],
+"base.n.prop.wineskin": [
+67
+],
+"base.m.skin.feet": [
+67
+],
+"base.m.skin.torso": [
+67
+],
+"base.m.skin.face": [
+67
+],
+"base.m.eyeball": [
+67
+],
+"base.m.hair.dreads": [
+67
+],
+"base.m.hair.wavy": [
+67
+],
+"base.m.hair.beanie": [
+67
+],
+"base.m.legs.shortscargo": [
+67
+],
+"base.m.skin.simple": [
+67
+],
+"base.m.torso.hoody": [
+67
+],
+"base.m.skin.armshands": [
+67
+],
+"base.m.torso.teehenley": [
+67
+],
+"base.m.torso.teelongcuffed": [
+67
+],
+"base.m.feet.sneakertennis": [
+67
+],
+"base.m.feet.sneakerhitops": [
+67
+],
+"base.m.feet.shoesathl": [
+67
+],
+"base.m.feet.shoessock": [
+67
+],
+"base.m.torso.coatlonga": [
+67
+],
+"base.m.torso.crtshirtlngslv": [
+67
+],
+"base.m.torso.tanktoploosea": [
+67
+],
+"base.m.torso.poloshtslvtucka": [
+67
+],
+"base.m.torso.pololngslvloosea": [
+67
+],
+"base.m.legs.gpants": [
+67
+],
+"base.m.feet.shoescasl": [
+67
+],
+"base.m.hair.ballcapa": [
+67
+],
+"base.m.torso.tshirthenleya": [
+67
+],
+"base.m.legs.shortsboard": [
+67
+],
+"base.m.hair.short": [
+67
+],
+"base.m.torso.poloshtslvloosea": [
+67
+],
+"base.m.misc.eyelashes": [
+67
+],
+"base.m.feet.andrewshoes": [
+67
+],
+"base.m.hair.andrew": [
+67
+],
+"base.m.torso.andrewshirtout": [
+67
+],
+"base.m.torso.rocapolo": [
+67
+],
+"base.m.djheadphones": [
+67
+],
+"base.m.ac.bandstudlg": [
+67
+],
+"base.m.ac.watchsport": [
+67
+],
+"base.m.ac.watchround": [
+67
+],
+"base.m.ac.watchsquare": [
+67
+],
+"base.m.ac.earring": [
+67
+],
+"base.m.ac.watchindie": [
+67
+],
+"base.m.ac.bandanawrist": [
+67
+],
+"base.m.ac.neckchain": [
+67
+],
+"base.m.ac.bandtennisrt": [
+67
+],
+"base.m.ac.bandtennislt": [
+67
+],
+"base.m.hair.rocacapa": [
+67
+],
+"base.m.legs.rocashorts": [
+67
+],
+"base.m.torso.rocatrack": [
+67
+],
+"base.m.legs.rocatrack": [
+67
+],
+"base.m.ac.rocawatch": [
+67
+],
+"base.m.feet.rocashoes": [
+67
+],
+"base.m.hair.rocacapb": [
+67
+],
+"bum.m.skin.face": [
+67
+],
+"bum.m.hair.brown": [
+67,
+71
+],
+"bum.m.legs.pantsbaglse": [
+67
+],
+"dktan.m.skin.legs": [
+67
+],
+"bum.m.torso.hoodie": [
+67
+],
+"dktan.m.skin.torso": [
+67
+],
+"base.m.torso.rocashirt": [
+67
+],
+"base.m.torso.shirtlngslvloosea": [
+67
+],
+"base.m.hair.straightalpha": [
+67,
+71
+],
+"base.m.hair.jfro": [
+67,
+71
+],
+"base.m.hair.mullet": [
+67,
+71
+],
+"base.m.hair.neopanther": [
+67,
+71
+],
+"base.m.hair.northpull": [
+67,
+71
+],
+"base.m.hair.fohok": [
+67
+],
+"base.m.ac.devil": [
+67
+],
+"base.m.wristleft.skelfing": [
+67
+],
+"base.m.neck.djamtag": [
+67
+],
+"base.djam.skin.torso": [
+67
+],
+"base.m.feet.djam": [
+67
+],
+"djam.m.skin.face": [
+67
+],
+"base.m.hair.djam": [
+67,
+71
+],
+"blonde.m.hair.hardhat": [
+67
+],
+"base.m.wristleft.wrkgloves": [
+67
+],
+"base.m.wristright.wrkgloves": [
+67
+],
+"base.m.feet.wrkshoes": [
+67
+],
+"base.m.hair.paperhat": [
+67
+],
+"base.m.torso.cook": [
+67
+],
+"base.m.hair.nypd": [
+67
+],
+"nypd.torso.nypdvest": [
+67
+],
+"base.m.waist.nypdbelt": [
+67
+],
+"base.m.torso.lngslvshirtvest": [
+67
+],
+"base.m.neck.bowtie": [
+67
+],
+"labncer.m.skin.face": [
+67
+],
+"base.m.hair.caesar": [
+71
+],
+"base.torso.cubavrashirt": [
+67
+],
+"base.m.torso.labncershirttat": [
+71
+],
+"hasidiccoat.m.skin.face": [
+67
+],
+"base.m.hair.hasidiccoat": [
+67
+],
+"base.m.torso.hasidiccoat": [
+67
+],
+"base.m.legs.overalls": [
+67
+],
+"base.m.torso.elfcoat": [
+67
+],
+"white.m.hair.jfro": [
+67
+],
+"base.m.legs.tights": [
+67
+],
+"base.m.feet.elfshoes": [
+67
+],
+"base.m.waist.elfbelt": [
+67
+],
+"base.m.feet.skates": [
+67
+],
+"base.m.neck.scarf": [
+67,
+71
+],
+"base.m.ear.reinhorn": [
+67
+],
+"base.m.ear.reinbell": [
+67
+],
+"red.m.ac.rose": [
+67
+],
+"base.m.wristright.andrewwtch": [
+67
+],
+"base.m.handleft.andrewring": [
+67
+],
+"base.m.torso.suitjacket": [
+67
+],
+"base.m.ac.earpiece": [
+67
+],
+"base.m.ac.earplugs": [
+67
+],
+"base.m.hair.facialhair": [
+71
+],
+"blkfullbeard.m.hair.facialhair": [
+67,
+71
+],
+"base.m.ac.mic": [
+67
+],
+"base.m.torso.crworkshirt": [
+67
+],
+"base.m.torso.crrainslick": [
+67
+],
+"base.m.legs.crjeans": [
+67
+],
+"base.m.legs.crcargo": [
+67
+],
+"base.m.torso.tanktop": [
+67
+],
+"base.m.hair.gorillamask": [
+67
+],
+"base.m.feet.gorillafoot": [
+67
+],
+"base.m.legs.crjeansbaggy": [
+67
+],
+"base.m.torso.shirtlngslv": [
+67
+],
+"base.m.torso.trackjacketa": [
+67
+],
+"base.m.feet.boots": [
+67
+],
+"base.m.feet.loafersq": [
+67
+],
+"base.m.feet.oxford": [
+67
+],
+"base.m.feet.runnercla": [
+67
+],
+"base.m.feet.runnermod": [
+67
+],
+"base.m.feet.decks": [
+67
+],
+"base.m.feet.trainer": [
+67
+],
+"base.m.feet.chucks": [
+67
+],
+"base.m.torso.puffyvesta": [
+67
+],
+"base.m.torso.puffyvestb": [
+67
+],
+"base.m.wrist.gorillahand": [
+67
+],
+"base.m.ac.glovefngrless": [
+67
+],
+"base.m.feet.dressclunky": [
+67
+],
+"base.m.ac.beltstudded": [
+71
+],
+"base.m.torso.crtshirtbaggy": [
+67
+],
+"base.m.hair.crballcap": [
+67
+],
+"base.m.hair.bandana": [
+67
+],
+"base.m.ac.dogtag": [
+71
+],
+"base.m.hair.capmil": [
+67
+],
+"base.m.torso.crhoodie": [
+67
+],
+"base.m.hair.ohat": [
+67
+],
+"base.m.hair.lhat": [
+67
+],
+"base.m.hair.straight": [
+67
+],
+"base.m.hair.frizzy": [
+67
+],
+"base.m.neck.stdtie": [
+67
+],
+"base.m.torso.bomberjacketa": [
+67
+],
+"base.m.hair.visorbeanie": [
+67
+],
+"base.m.torso.jackethoodie": [
+67
+],
+"base.m.torso.sweatshirtshirt": [
+67
+],
+"base.m.finger.blingring": [
+67
+],
+"base.m.ac.chainwallet": [
+71
+],
+"base.m.torso.raincoat": [
+67
+],
+"kevinm.m.torso.crtshirtlngslv": [
+67
+],
+"base.m.wrist.pawa": [
+67
+],
+"base.m.waist.bunnytail": [
+67,
+71
+],
+"base.m.ears.headbanda": [
+71
+],
+"base.m.glasses.maskfullb": [
+71
+],
+"base.m.feet.pawa": [
+67
+],
+"base.m.glasses.maskfulla": [
+67
+],
+"base.m.torso.blazertee": [
+67
+],
+"jbra1.m.torso.crtshirtlngslv": [
+67
+],
+"base.m.torso.blazercollar": [
+67
+],
+"base.m.torso.pocketkerchief": [
+67
+],
+"base.m.feet.dressoxford": [
+67
+],
+"base.m.hair.cornrows": [
+67,
+71
+],
+"base.m.torso.suita": [
+67
+],
+"base.m.neck.tie": [
+71
+],
+"base.m.ac.gwchain": [
+71
+],
+"base.m.neck.prehchain": [
+71
+],
+"base.m.ac.cmesbaga": [
+67
+],
+"base.m.feet.puffysneakers": [
+67
+],
+"base.m.feet.puffyrunners": [
+67
+],
+"base.m.torso.vnecksweater": [
+67
+],
+"base.m.feet.slippers": [
+67
+],
+"base.m.torso.fishnet": [
+71
+],
+"base.m.feet.bootshi": [
+67
+],
+"base.m.legs.splicers": [
+67
+],
+"base.m.legs.splicersbuckle": [
+71
+],
+"base.m.legs.gravers": [
+67
+],
+"base.m.torso.regiment": [
+67
+],
+"base.m.torso.victorian": [
+67
+],
+"base.m.torso.vanguard": [
+67
+],
+"goza1.m.buckles": [
+71
+],
+"base.m.ac.classring": [
+67
+],
+"base.m.neck.gneckchain": [
+71
+],
+"base.m.ac.eguitara": [
+67
+],
+"base.m.hair.sumo": [
+67
+],
+"base.m.legs.sumo": [
+67
+],
+"base.m.torso.sumo": [
+67
+],
+"base.m.legs.racers": [
+67
+],
+"base.m.legs.solos": [
+67
+],
+"base.m.legs.motodg": [
+67
+],
+"base.m.torso.motodg": [
+67
+],
+"base.m.helmet.motodg": [
+67
+],
+"base.m.head.helmetmask": [
+71
+],
+"base.m.feet.motodg": [
+67
+],
+"base.m.wristright.motodg": [
+67
+],
+"base.m.wristleft.motodg": [
+67
+],
+"base.m.hair.bigben": [
+67,
+71
+],
+"base.m.legs.sumoskirt": [
+67
+],
+"base.m.ac.bass": [
+67
+],
+"base.m.ac.drumset": [
+67
+],
+"base.m.ac.drumstick": [
+67
+],
+"base.m.neck.ascot": [
+67
+],
+"base.m.hair.fadora": [
+67
+],
+"base.m.prop.hairdryer": [
+67
+],
+"base.m.prop.scissors": [
+3
+],
+"base.m.prop.watercan": [
+67
+],
+"base.m.torso.suitc": [
+67
+],
+"base.m.torso.cartel": [
+67
+],
+"base.m.feet.flipflop": [
+67
+],
+"base.m.prop.shears": [
+67
+],
+"base.m.prop.brush": [
+67,
+71
+],
+"base.m.prop.clippers": [
+67
+],
+"comb.m.prop.hairpick": [
+71
+],
+"base.m.prop.hairpick": [
+67
+],
+"base.m.hair.cowboyhat": [
+67
+],
+"base.m.ac.hairOrnament": [
+71
+],
+"base.m.legs.cowboychaps": [
+67
+],
+"base.m.hair.scrubs": [
+67
+],
+"base.m.ac.maskmed": [
+67
+],
+"base.m.ac.maskstring": [
+71
+],
+"base.m.ac.shmmed": [
+67
+],
+"base.m.ac.stethoscope": [
+67
+],
+"base.m.face.makeupwhole": [
+71
+],
+"base.m.torso.cowshirt": [
+67
+],
+"base.m.torso.orgvest": [
+67
+],
+"base.m.glasses.aviator": [
+71
+],
+"base.m.glasses.sport": [
+71
+],
+"base.m.glasses.lennon": [
+71
+],
+"base.m.glasses.jackieo": [
+71
+],
+"base.m.glasses.djamsg": [
+71
+],
+"blk.m.glasses.aviator": [
+71
+],
+"base.m.glasses.hipster": [
+71
+],
+"base.m.glasses.bigb": [
+71
+],
+"base.m.glasses.bigc": [
+71
+],
+"base.m.glasses.flata": [
+71
+],
+"base.m.glasses.flatb": [
+71
+],
+"base.m.glasses.flatc": [
+71
+],
+"base.m.glasses.biga": [
+71
+],
+"base.m.ac.pillow": [
+67
+],
+"base.m.hair.coiffure": [
+67,
+71
+],
+"base.m.hair.coifftrnsa": [
+71
+],
+"base.m.hair.coifftrnsb": [
+71
+],
+"base.m.hair.mohawka": [
+71
+],
+"base.m.prop.gun": [
+67
+],
+"base.m.waist.gunbelt": [
+67
+],
+"base.m.prop.fancygloves": [
+71
+],
+"base.m.ac.maskbandanna": [
+67
+],
+"base.m.ac.backpacka": [
+67
+],
+"base.m.ac.backpackb": [
+67
+],
+"base.m.hair.mohawkb": [
+67
+],
+"base.m.finger.lnailpolish": [
+67
+],
+"base.m.finger.rnailpolish": [
+67
+],
+"base.m.toe.lnailpolish": [
+67
+],
+"base.m.toe.rnailpolish": [
+67
+],
+"base.m.prop.nailfile": [
+67
+],
+"base.m.prop.nailpolish": [
+67
+],
+"base.m.prop.woodfile": [
+67
+],
+"base.m.prop.scissorblade": [
+67
+],
+"base.m.prop.scissorhands": [
+67
+],
+"base.m.finger.rnailpolishodd": [
+67
+],
+"base.m.finger.lnailpolishodd": [
+67
+],
+"base.m.ac.kefscarf": [
+67
+],
+"base.m.prop.switchcomb": [
+67
+],
+"base.m.ac.angelwing": [
+71
+],
+"base.m.prop.bowarrow": [
+67
+],
+"base.m.prop.loot": [
+67
+],
+"base.m.pierce.lfttragus": [
+67
+],
+"base.m.pierce.rghtragus": [
+67
+],
+"base.m.pierce.lftauricle": [
+67
+],
+"base.m.pierce.rghauricle": [
+67
+],
+"base.m.pierce.lftconch": [
+67
+],
+"base.m.pierce.earl": [
+67
+],
+"base.m.pierce.lfteyebrow": [
+67
+],
+"base.m.pierce.rgheyebrow": [
+67
+],
+"base.m.pierce.labret": [
+67
+],
+"base.m.pierce.lowlip": [
+67
+],
+"base.m.pierce.lftlobe": [
+67
+],
+"base.m.pierce.rghlobe": [
+67
+],
+"base.m.pierce.madonna": [
+67
+],
+"base.m.pierce.medusa": [
+67
+],
+"base.m.pierce.nostril": [
+67
+],
+"base.m.pierce.lftorbital": [
+67
+],
+"base.m.pierce.rghorbital": [
+67
+],
+"base.m.pierce.lftpinna": [
+67
+],
+"base.m.pierce.rghpinna": [
+67
+],
+"base.m.pierce.lftrook": [
+67
+],
+"base.m.pierce.rghrook": [
+67
+],
+"base.m.pierce.septum": [
+67
+],
+"base.m.pierce.septumd": [
+67
+],
+"base.m.pierce.lftlobed": [
+67
+],
+"base.m.pierce.rghlobed": [
+67
+],
+"base.m.prop.piercegun": [
+3
+],
+"base.m.prop.pipewrench": [
+3
+],
+"base.m.prop.adjwrench": [
+3
+],
+"base.m.prop.forcepa": [
+3
+],
+"base.m.prop.forcepb": [
+3
+],
+"base.m.prop.pliersa": [
+3
+],
+"base.m.prop.pliersb": [
+3
+]
+}

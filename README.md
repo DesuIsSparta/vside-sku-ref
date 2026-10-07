@@ -59,6 +59,12 @@ node scripts/thumbnails/render-wearables.mjs --ids 100,1001 --out /tmp/thumbs
 node scripts/thumbnails/reframe-furnishings.mjs
 ```
 
+Torque only used a texture's alpha on materials flagged Translucent, and the
+GLB conversion dropped those flags, so the renderer reads them from
+`scripts/thumbnails/material-flags.json`. Regenerate it with
+`read-dts-material-flags.py` (instructions in the file) if the player `.dts`
+files change.
+
 Per-slot camera angles and framing live in `shotFor()` in
 `scripts/thumbnails/render.js`. A SKU that fails to render keeps its existing
 file. `scripts/thumbnails/_render-report.json` lists the skips plus each
