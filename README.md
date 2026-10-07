@@ -57,6 +57,10 @@ node scripts/thumbnails/render-wearables.mjs --ids 100,1001 --out /tmp/thumbs
 
 # Furnishings: trims the Blender renders' empty margins and re-frames them.
 node scripts/thumbnails/reframe-furnishings.mjs
+
+# Badges, tokens and floorplans from vSide's UI art in E:\__vSide builds, and
+# swatches from the residence builder's swatch textures (tiled 2x2).
+node scripts/thumbnails/render-icons.mjs
 ```
 
 Torque only used a texture's alpha on materials flagged Translucent, and the
@@ -70,6 +74,16 @@ Per-slot camera angles and framing live in `shotFor()` in
 file. `scripts/thumbnails/_render-report.json` lists the skips plus each
 render's coverage and brightness, the quickest way to find blank or tiny
 ones. Run `npm run data` afterwards so `hasThumb` picks up new files.
+
+Furnishing renders come from the Blender inventory-preview add-on, which
+imports each item's `.dts` from `E:\__vSide\Assets\For_UE5\Inventory` and
+looks for its textures beside it. About 136 item folders never got their
+textures copied in and rendered as flat pink, teal or green placeholders.
+`stage-furnishings.mjs` stages a copy of those items with the textures
+recovered from the vSide builds, sibling item folders and the residence
+builder's Unreal exports, so they can be re-rendered without touching the
+source tree. Its header lists the five steps, and `_unresolved.json` in the
+staging folder names the textures that exist nowhere locally.
 
 ### Dataset
 
