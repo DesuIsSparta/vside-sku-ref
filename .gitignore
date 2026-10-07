@@ -17,3 +17,6 @@ yarn-error.log*
 .env
 
 # docs/ is the GitHub Pages build output and is intentionally committed.
+
+# thumbnail render report
+/scripts/thumbnails/_render-report.json

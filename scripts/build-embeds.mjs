@@ -53,8 +53,8 @@ function renderPage(sku) {
   const pageUrl = `${SITE_URL}sku/${sku.skuNum}/`;
   const redirectTarget = `../../#sku=${sku.skuNum}`;
   const image = sku.hasThumb ? `${SITE_URL}img/skus/${sku.skuNum}.png` : `${SITE_URL}og-image.png`;
-  const imageWidth = sku.hasThumb ? 128 : 1200;
-  const imageHeight = sku.hasThumb ? 128 : 630;
+  const imageWidth = sku.hasThumb ? 256 : 1200;
+  const imageHeight = sku.hasThumb ? 256 : 630;
   const twitterCard = sku.hasThumb ? 'summary' : 'summary_large_image';
 
   return `<!doctype html>
